@@ -7,12 +7,12 @@ function App() {
   const [nutrition, setNutrition] = useState("");
   const [inputInfo, setInputInfo] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  let splitedSearchValue = searchValue.split(",");
   
   const myId = '9c2c8eec';
   const myKey = '34a87400e610fb706b9746b8f354073c';
 
 useEffect(() => {
+  let splitedSearchValue = searchValue.split(",");
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -26,10 +26,9 @@ useEffect(() => {
     const response = await fetch(`https://api.edamam.com/api/nutrition-details?app_id=${myId}&app_key=${myKey}`, requestOptions);
     const data = await response.json();
     setNutrition(data)
-    console.log(nutrition)
+    console.log(data)
   }
     getNutritions();
-
 }, [searchValue]);
 
 const finalSearch = (e) => {
