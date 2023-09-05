@@ -41,6 +41,8 @@ useEffect(() => {
         icon: 'error',
         title: 'Oops...',
         text: 'Ingredients entered incorrectly. Please try again.',
+        color: '#00000090',
+        confirmButtonColor: '#59C9A5'
       })
       setStateLoader(false)
     }
@@ -65,7 +67,7 @@ const handleInputInfo = (e) => {
       <Heading />
       <form onSubmit={finalSearch} className='input-container'>
         <input onChange={handleInputInfo} value={inputInfo} placeholder='2 avocado, 5g sesame seeds...' type="text" className='input-style' />
-        <button><img className='icon' src={icon} alt="search" /></button>
+        <button className='searchBtn'><img className='icon' src={icon} alt="search" /></button>
       </form>
       {nutrition &&
         <Nutrition nutrition = {nutrition}/>

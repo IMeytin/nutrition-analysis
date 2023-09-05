@@ -39,7 +39,7 @@ header {
   opacity: 0.5;
   color: #FFFBFA;
 }
-button {
+.searchBtn {
     border-radius: 0px 80px 10px 0px;
     background-color: #59C9A5;
     border: none;
