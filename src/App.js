@@ -16,9 +16,8 @@ function App() {
   const myKey = '34a87400e610fb706b9746b8f354073c';
 
 useEffect(() => {
-
   let splitedSearchValue = searchValue.split(",");
-  console.log(splitedSearchValue)
+
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -36,7 +35,6 @@ useEffect(() => {
       setStateLoader(false);
       const data = await response.json();
       setNutrition(data);
-      console.log(data)
     }
     else {
       Swal.fire({
@@ -61,7 +59,6 @@ const handleInputInfo = (e) => {
   setInputInfo(e.target.value);
 }
 
-
   return (
     <div >
       {stateLoader && <LoaderPage />}
@@ -71,8 +68,8 @@ const handleInputInfo = (e) => {
         <button><img className='icon' src={icon} alt="search" /></button>
       </form>
       {nutrition &&
-      <Nutrition nutrition = {nutrition}/>
-              }
+        <Nutrition nutrition = {nutrition}/>
+      }
     </div>
   );
 }
