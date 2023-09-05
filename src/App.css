@@ -52,7 +52,7 @@ header {
 .main-container{
   display: flex;
   justify-content: space-evenly;
-  margin-top: 100px;
+  margin: 100px 0px 50px 0px;
 }
 .sideImg {
   width: 450px;
