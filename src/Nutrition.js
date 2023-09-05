@@ -1,14 +1,14 @@
-import ingrImg from './ingr-img.jpg';
+import sideImgWave from './sideImgWave.jpg'
 
 const Nutrition = ({nutrition}) => {
     return (
         <div className="main-container">
-            <div>
-                <img src={ingrImg} alt="ingredients" />
+            <div className='img-container'>
+                <img className='sideImg' src={sideImgWave} alt="ingredients"  />
             </div>
             <div className="data-container">
                 <h2 className="data-title">NUTRITION FACTS</h2>
-                <p>{nutrition.calories} calories</p>
+                <p className='calories'>{nutrition.calories} calories</p>
                 <hr />
                 {Object.values (nutrition.totalNutrients).slice(8)
                 .map((element, index) => {

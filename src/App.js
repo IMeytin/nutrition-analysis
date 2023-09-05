@@ -18,6 +18,7 @@ function App() {
 useEffect(() => {
 
   let splitedSearchValue = searchValue.split(",");
+  console.log(splitedSearchValue)
   const requestOptions = {
     method: 'POST',
     headers: {
