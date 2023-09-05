@@ -1,6 +1,6 @@
 import ingrImg from './ingr-img.jpg';
 
-const Nutrition = ({label, quantity, unit, calories}) => {
+const Nutrition = ({nutrition}) => {
     return (
         <div className="main-container">
             <div>
@@ -8,14 +8,22 @@ const Nutrition = ({label, quantity, unit, calories}) => {
             </div>
             <div className="data-container">
                 <h2 className="data-title">NUTRITION FACTS</h2>
-                <p>{calories} calories</p>
+                <p>{nutrition.calories}calories</p>
                 <hr />
-                <ul>
-                    <li>{label} {quantity}{unit}</li>
-                </ul>
+                {Object.values (nutrition.totalNutrients)
+                .map((element, index) => {
+                    const {label, quantity, unit} = element;
+                    return(
+                        <div key={index} >
+                            <ul>
+                                <li>{label}: {quantity.toFixed(2)}{unit}</li>
+                            </ul>
+                        </div>
+                    )
+                })}
             </div>
         </div>
-    );
+    )
 };
 
 export default Nutrition;

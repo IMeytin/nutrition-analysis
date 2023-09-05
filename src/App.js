@@ -48,22 +48,13 @@ const handleInputInfo = (e) => {
   return (
     <div >
       <Heading />
-
       <form onSubmit={finalSearch} className='input-container'>
         <input onChange={handleInputInfo} value={inputInfo} placeholder='2 avocado, 5g sesame seeds...' type="text" className='input-style' />
         <button><img className='icon' src={icon} alt="search" /></button>
       </form>
-
-      {nutrition && Object.values(nutrition.totalNutrients)
-      .map ((element, index) => {
-        const {label, quantity, unit} = element;
-        return(
-          <Nutrition key={index} label = {label}
-          quantity = {quantity.toFixed(2)}
-          unit = {unit}
-          calories = {nutrition.calories}/>)
-      })
-      }
+      {nutrition &&
+      <Nutrition nutrition = {nutrition}/>
+              }
     </div>
   );
 }
