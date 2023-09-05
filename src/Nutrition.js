@@ -8,9 +8,9 @@ const Nutrition = ({nutrition}) => {
             </div>
             <div className="data-container">
                 <h2 className="data-title">NUTRITION FACTS</h2>
-                <p>{nutrition.calories}calories</p>
+                <p>{nutrition.calories} calories</p>
                 <hr />
-                {Object.values (nutrition.totalNutrients)
+                {Object.values (nutrition.totalNutrients).slice(8)
                 .map((element, index) => {
                     const {label, quantity, unit} = element;
                     return(
