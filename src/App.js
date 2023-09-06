@@ -3,8 +3,8 @@ import './App.css';
 import Heading from './Heading';
 import { useEffect, useState } from 'react';
 import Nutrition from './Nutrition';
-import Swal from 'sweetalert2';
 import LoaderPage from './LoaderFolder/LoaderPage';
+import Swal from 'sweetalert2';
 
 function App() {
   const [nutrition, setNutrition] = useState("");
@@ -16,7 +16,7 @@ function App() {
   const myKey = '34a87400e610fb706b9746b8f354073c';
 
 useEffect(() => {
-  let splitedSearchValue = searchValue.split(",");
+  let splitedSearchValue = searchValue.split(/[,,;,\n,\r]/);
 
   const requestOptions = {
     method: 'POST',
@@ -29,7 +29,8 @@ useEffect(() => {
 
   const getNutritions = async() => {
     setStateLoader(true);
-    const response = await fetch(`https://api.edamam.com/api/nutrition-details?app_id=${myId}&app_key=${myKey}`, requestOptions);
+    const response = await fetch(`https://api.edamam.com/api/nutrition-details?app_id=${myId}&app_key=${myKey}`, 
+    requestOptions);
 
     if (response.ok) {
       setStateLoader(false);
@@ -52,13 +53,13 @@ useEffect(() => {
     }
 }, [searchValue]);
 
+const handleInputInfo = (e) => {
+  setInputInfo(e.target.value);
+}
+
 const finalSearch = (e) => {
   e.preventDefault();
   setSearchValue(inputInfo)
-}
-
-const handleInputInfo = (e) => {
-  setInputInfo(e.target.value);
 }
 
   return (
